@@ -1,0 +1,13 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+       String s = "John:1234445454";
+       StringBuffer s1 = new StringBuffer(s.substring(5));
+       s1.insert(0,'(');
+       s1.insert(4,')');
+       s1.insert(5,'-');
+       s1.insert(9,'-');
+       System.out.println(s1.toString());
+       
+     }
+}
