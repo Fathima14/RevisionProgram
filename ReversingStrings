@@ -1,0 +1,50 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+        String str = "Reversing a String";
+        System.out.println(rev(str));
+        revLoop(str);
+        System.out.println(new StringBuffer(str).reverse().toString());
+        System.out.println(reverseWords(str));
+     }
+     
+     public static String reverseWords(String str){
+         String st[]=str.split(" ");
+         StringBuffer sb = new StringBuffer();
+         for (String s: st){
+            sb=sb.append(rev(s)).append(" ");
+         }
+        return sb.toString();
+    }
+     
+     public static String rev(String str){
+         if (null == str || str.length() <= 1)
+            return str;
+        else 
+          return rev(str.substring(1))+str.charAt(0);
+     }
+     
+     public static void revLoop(String str){
+         char ch[] = str.toCharArray();
+         int n=ch.length;
+         int j=n-1;
+         char temp;
+         for (int i=0;i<n/2;i++,j--){
+            temp=ch[j];
+            ch[j]=ch[i];
+            ch[i]=temp;
+         }
+        System.out.println(String.valueOf(ch));
+        
+        int right=n-1;
+        
+        for(int left=0;left<right;left++,right--){
+           temp=ch[left];
+           ch[left]=ch[right];
+           ch[right]=temp;
+        }
+        
+        System.out.println(String.valueOf(ch));
+        
+     }
+}
