@@ -1,0 +1,110 @@
+import java.util.*;
+public class ArrayListRevision{
+
+     public static void main(String []args){
+        ArrayList<String> colors = new ArrayList<String>();
+        colors.add("red");
+        colors.add("blue");
+        colors.add("white");
+        colors.add("black");
+        
+        // Print 1
+        System.out.println(colors);
+        
+        // Print 2
+        for (String s : colors)
+            System.out.println(s);
+
+        // Print 3
+        Iterator<String> itr = colors.iterator();
+        while(itr.hasNext()){
+        System.out.println(itr.next());
+        }
+        
+        // to insert at specified index
+        colors.add(2,"pink");
+        System.out.println(colors);
+        
+        // to update a specific element
+        colors.set(3,"brown");
+        System.out.println(colors);
+        
+        // to retrieve from specified index
+        System.out.println(colors.get(2));
+        
+         // to remove from specified index
+        System.out.println(colors.remove(3));
+        System.out.println(colors);
+        
+         // to search for an element
+        boolean b = colors.contains("pink") ? true : false;
+        System.out.println(b);
+        
+        Collections.sort(colors);
+        System.out.println(colors);
+        
+        //to copy one list to another
+        ArrayList<String> colors1 = new ArrayList<>(colors);
+        System.out.println(colors1);
+        
+        //to shuffle elements in a list
+        Collections.shuffle(colors1);
+        System.out.println(colors1);
+        
+        //to reverse elements in a list
+        Collections.reverse(colors1);
+        System.out.println(colors1);
+        
+       //to extract a portion of a arrayList
+        List<String> l = colors1.subList(0,3);
+        System.out.println(l);
+        
+        //storing the comparison output in new arraylist
+        List<String> l1 = new ArrayList<>();
+        for(String c : colors){
+            l1.add(colors1.contains(c) ? "YES" : "NO");
+        }
+        
+        System.out.println(l1);
+        
+        // Swapping two elements in an arrayList
+        Collections.swap(colors,2,3);
+        System.out.println(colors);
+        
+       // Add two arrayLists
+       List<String> l2 = new ArrayList<>();
+       l2.addAll(colors1);
+       l2.addAll(colors);
+       System.out.println(l2); 
+       
+       //ArrayList<String> l3 = (ArrayList<String>)colors.clone();
+       
+       //to remove all 
+       l2.removeAll(l2);
+       System.out.println(l2); 
+       
+       //to remove all
+       l1.clear();
+       System.out.println(l1); 
+       
+       //to check empty 
+       if (l1.isEmpty())
+            System.out.println("l1 is Empty"); 
+        
+        // Trim to size - empty locations space will be saved
+        System.out.println(colors.size());
+        colors.trimToSize();
+        System.out.println(colors.size());
+        
+        //to increase capacity
+        System.out.println(colors1.size());
+        colors1.ensureCapacity(10);
+        System.out.println(colors1.size());
+        
+        // to replace a specified element
+        colors1.set(3,"green");
+        System.out.println(colors1);
+        
+
+     }
+}
